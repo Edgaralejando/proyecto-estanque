@@ -2,21 +2,35 @@
 
 **Autor:** Edgar Alejandro Díaz Pérez
 
-### Descripción
+## Descripción
 Sistema IoT diseñado para el monitoreo y control de nivel de un estanque. Permite la visualización remota en una interfaz web, el control de actuadores físicos (llenado/vaciado) mediante un ESP32 y el registro histórico detallado de eventos en una base de datos en la nube (Supabase).
 
-### Tecnologías Utilizadas
+---
+
+## Tecnologías Utilizadas
 - **Hardware:** ESP32 (Control de actuadores y LEDs indicadores).
 - **Comunicación:** Protocolo MQTT (Broker: HiveMQ).
 - **Backend:** Python con Flask.
 - **Base de Datos:** Supabase (PostgreSQL) con registros en UTC-4.
 - **Frontend:** HTML5 y CSS3 (Sin uso de JavaScript).
 
-### Justificación de Roles
-- **ESP32:** Controlador de hardware. Recibe comandos MQTT para gestionar físicamente 3 LEDs (LLENAR, VACIAR, LLENO) que representan el estado del sistema.
-- **Servidor Flask:** Lógica de negocio. Procesa la interfaz web, envía las instrucciones MQTT al hardware y garantiza el registro de eventos en Supabase.
+---
 
-### Organización del Repositorio
+## Evidencia Visual
+
+### 1. Estructura y Hardware
+![Estructura de Carpetas](capturas/estructura_carpetas.png)
+![Conexión Física](capturas/conexion_fisica.png)
+![Código Firmware](capturas/codigo_firmware.png)
+
+### 2. Interfaz y Base de Datos
+![Interfaz Llena](capturas/interfaz_llena.png)
+![Interfaz Vacía](capturas/interfaz_vacia.png)
+![Registro Supabase](capturas/registro_supabase.png)
+
+---
+
+## Organización del Repositorio
 ```text
 proyecto-estanque/
 ├── backend/            # Lógica del servidor (app.py y dependencias)
