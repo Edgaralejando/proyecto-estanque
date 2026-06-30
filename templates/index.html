@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Control Estanque</title>
+    <style>
+        /* Estilo general para toda la página, le puse fondo oscuro y letras verdes para que se vea estilo terminal */
+        .contenedor-principal { 
+            text-align: center; 
+            font-family: 'Courier New', monospace; 
+            background: #1a1a1a; 
+            color: #00ff41; 
+            height: 100vh; 
+            padding-top: 50px; 
+        }
+
+        /* Estilos de los botones para llenar y vaciar */
+        .btn-accion { 
+            padding: 20px; 
+            text-decoration: none; 
+            border: 2px solid; 
+            display: inline-block; 
+            margin: 10px; 
+            font-weight: bold;
+        }
+
+        /* Colores específicos para diferenciar las acciones */
+        .btn-llenar { background: #004400; color: #00ff41; border-color: #00ff41; }
+        .btn-vaciar { background: #440000; color: #ff4141; border-color: #ff4141; }
+
+        .titulo-estanque { color: #ffffff; margin-bottom: 30px; }
+
+        /* Aquí dibujo el "tanque". Es un contenedor con borde que mantiene el agua adentro */
+        .contenedor-estanque {
+            position: relative;
+            margin: 40px auto;
+            width: 100px;
+            height: 300px;
+            border: 4px solid #00ff41;
+            background: #000;
+            display: flex;
+            align-items: flex-end; /* Esto hace que el div del agua empiece desde el fondo */
+        }
+
+        /* La barra azul que representa el nivel de agua */
+        .nivel-agua {
+            width: 100%;
+            background: #007bff;
+            transition: height 0.5s ease; /* Para que la subida sea suave */
+        }
+
+        .texto-nivel { font-size: 20px; margin-top: 10px; }
+    </style>
+</head>
+<body class="contenedor-principal">
+    <h1 class="titulo-estanque">CONTROL DE ESTANQUE</h1>
+    
+    <div class="contenedor-estanque">
+        <div class="nivel-agua" style="height: {{ nivel * 20 }}%;"></div>
+    </div>
+    
+    <div class="texto-nivel">NIVEL ACTUAL: {{ nivel }} / 5</div>
+
+    <br><br>
+    <a href="/accion/LLENAR" class="btn-accion btn-llenar">LLENAR</a>
+    <a href="/accion/VACIAR" class="btn-accion btn-vaciar">VACIAR</a>
+</body>
+</html>
